@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Roboto', sans-serif; margin: 0; background: linear-gradient(135deg, #e3eaf2 0%, #f4f6f8 100%); color: #222; }
+        body { font-family: 'Roboto', sans-serif; margin: 0; background: linear-gradient(135deg, #e3eaf2 0%, #dbe6f6 100%); color: #222; }
         .container { max-width: 900px; margin: 40px auto; background: #fff; box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08); border-radius: 16px; padding: 40px; }
         h1, h2 { color: #2a4d69; }
         h1 { font-size: 2.7em; margin-bottom: 0.2em; }
@@ -17,7 +17,44 @@
         .contact span, .contact a { display: flex; align-items: center; gap: 0.4em; }
         .section { margin-bottom: 2em; padding: 2em 1.5em; background: #f8fbff; border-radius: 12px; box-shadow: 0 2px 8px rgba(44,62,80,0.06); }
         .section:not(:first-child) { margin-top: 2em; }
-        .section h2 { margin-top: 0; }
+        .section h2 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1.5em;
+}
+.section#about h2::before { content: '\f007'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+.section#profile h2::before { content: '\f2bb'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+.section#education h2::before { content: '\f19d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+.section#skills h2::before { content: '\f121'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+.section#experience h2::before { content: '\f0b1'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+.section#projects h2::before { content: '\f0ae'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+.section#resume h2::before { content: '\f15c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+.section#contact h2::before { content: '\f2b6'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+
+/* Experience Timeline */
+.timeline {
+    position: relative;
+    margin-left: 1.5em;
+    padding-left: 1.5em;
+    border-left: 3px solid #4b86b4;
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 2em;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5em;
+    top: 0.5em;
+    width: 1em;
+    height: 1em;
+    background: #4b86b4;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+}
         ul { padding-left: 1.2em; }
         .skills-list, .cert-list { display: flex; flex-wrap: wrap; gap: 1em; }
         .skills-list li, .cert-list li { background: #e3eaf2; border-radius: 4px; padding: 0.4em 1em; margin-bottom: 0.5em; }
@@ -51,10 +88,49 @@
         button[type="submit"] { background:#2a4d69;color:#fff;padding:0.6em 1.2em;border:none;border-radius:6px;cursor:pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.12); transition: background 0.2s, box-shadow 0.2s; }
 button[type="submit"]:hover { background: #4b86b4; box-shadow: 0 4px 16px rgba(44,62,80,0.18); }
 blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
+.banner {
+    background: linear-gradient(120deg, #4b86b4 0%, #e3eaf2 100%);
+    color: #fff;
+    padding: 3em 0 2em 0;
+    text-align: center;
+    border-radius: 0 0 32px 32px;
+    box-shadow: 0 8px 32px rgba(44,62,80,0.10);
+    margin-bottom: 2em;
+    position: relative;
+}
+.banner-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-top: 2em;
+    flex-wrap: wrap;
+}
+.banner-nav a {
+    background: #fff;
+    color: #2a4d69;
+    font-weight: 600;
+    padding: 0.7em 1.5em;
+    border-radius: 24px;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    margin-bottom: 0.5em;
+}
+.banner-nav a:hover {
+    background: #4b86b4;
+    color: #fff;
+}
+.banner .profile-img {
+    animation: fadeIn 1.2s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
     </style>
 </head>
 <body>
-    <div class="banner" style="background: linear-gradient(120deg, #4b86b4 0%, #e3eaf2 100%); color: #fff; padding: 3em 0 2em 0; text-align: center; border-radius: 0 0 32px 32px; box-shadow: 0 8px 32px rgba(44,62,80,0.10); margin-bottom: 2em;">
+    <div class="banner" style="background: linear-gradient(120deg, #4b86b4 0%, #e3eaf2 100%); color: #fff; padding: 3em 0 2em 0; text-align: center; border-radius: 0 0 32px 32px; box-shadow: 0 8px 32px rgba(44,62,80,0.10); margin-bottom: 2em; position: relative;">
         <img src="img.png" alt="Profile" class="profile-img" style="border: 4px solid #fff; box-shadow: 0 4px 24px rgba(44,62,80,0.18); margin-bottom: 1em;">
         <h1 style="font-size: 2.8em; margin-bottom: 0.3em; color: #fff;">Chandra Naga Manikanta Vetsa</h1>
         <p style="font-size: 1.25em; max-width: 600px; margin: 0 auto 1.2em auto; color: #f8fbff;">Empowering business decisions through data engineering, analytics, and automation. Passionate about building scalable solutions and delivering actionable insights.</p>
@@ -64,7 +140,16 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
             <span><i class="fa fa-phone"></i> <a href="tel:8019199636" style="color:#fff;text-decoration:underline;">(801) 919-9636</a></span>
             <span><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/chandra_vetsa" target="_blank" style="color:#fff;text-decoration:underline;">LinkedIn</a></span>
         </div>
-        <a href="#projects" style="background:#fff;color:#2a4d69;font-weight:600;padding:0.7em 2em;border-radius:24px;box-shadow:0 2px 8px rgba(44,62,80,0.10);text-decoration:none;transition:background 0.2s;">View Projects</a>
+        <div class="banner-nav">
+            <a href="#about">About</a>
+            <a href="#profile">Profile</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </div>
     </div>
     <div class="container">
         <div class="section" id="about">
@@ -98,8 +183,8 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
         </div>
         <div class="section" id="experience">
             <h2>Experience</h2>
-            <ul>
-                <li>
+            <div class="timeline">
+                <div class="timeline-item">
                     <span class="exp-role">Data Engineer</span> @ <span class="exp-company">Tata Consultancy Services, Dallas, US</span> <span class="exp-date">Feb 2024 – Present</span>
                     <ul>
                         <li>Performed complex SQL and Snowflake operations to manage and manipulate large datasets, ensuring data integrity and accuracy.</li>
@@ -112,8 +197,8 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
                         <li>Implemented data security and compliance measures for sensitive information.</li>
                         <li>Created documentation for data processes and trained team members on new tools and workflows.</li>
                     </ul>
-                </li>
-                <li>
+                </div>
+                <div class="timeline-item">
                     <span class="exp-role">Software Development Engineer in Test</span> @ <span class="exp-company">Codehub Technologies, Dallas, US</span> <span class="exp-date">Sep 2023 – Jan 2024</span>
                     <ul>
                         <li>Created automation scripts for applications using Selenium and Java, enhancing efficiency.</li>
@@ -129,8 +214,8 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
                         <li>Designed and implemented advanced test automation frameworks, increasing test coverage and reducing manual effort by 40%.</li>
                         <li>Mentored junior engineers, fostering a culture of continuous improvement and technical excellence.</li>
                     </ul>
-                </li>
-                <li>
+                </div>
+                <div class="timeline-item">
                     <span class="exp-role">Graduate Teaching Assistant</span> @ <span class="exp-company">University of Utah, Salt Lake City, US</span> <span class="exp-date">May 2023 – Aug 2023</span>
                     <ul>
                         <li>Supported course delivery by assisting professors and students, fostering an engaging and inclusive learning environment.</li>
@@ -140,8 +225,8 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
                         <li>Provided personalized mentoring to students, helping them overcome academic challenges and achieve learning goals.</li>
                         <li>Organized workshops and seminars, enriching the student learning experience and promoting collaborative knowledge sharing.</li>
                     </ul>
-                </li>
-                <li>
+                </div>
+                <div class="timeline-item">
                     <span class="exp-role">Data Analyst</span> @ <span class="exp-company">Tata Consultancy Services, Hyderabad, India</span> <span class="exp-date">Dec 2019 – Aug 2022</span>
                     <ul>
                         <li>Engineered query performance improvements, achieving a 40% reduction in report generation time for banking projects and accelerating decision-making processes.</li>
@@ -153,8 +238,8 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
                         <li>Automated data extraction and reporting workflows, reducing manual effort and increasing operational efficiency.</li>
                         <li>Presented findings to senior management and contributed to strategic planning sessions.</li>
                     </ul>
-                </li>
-                <li>
+                </div>
+                <div class="timeline-item">
                     <span class="exp-role">Associate System Engineer</span> @ <span class="exp-company">Tata Consultancy Services, Hyderabad, India</span> <span class="exp-date">Dec 2018 – Dec 2019</span>
                     <ul>
                         <li>Worked as a Manual and Automation Test Engineer for an Insurance and Banking project.</li>
@@ -171,8 +256,8 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
                         <li>Facilitated cross-functional collaboration, driving timely releases and high-quality deliverables.</li>
                         <li>Provided training and mentorship to junior team members, elevating overall team performance.</li>
                     </ul>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
         <div class="section" id="projects">
             <h2>Projects</h2>
