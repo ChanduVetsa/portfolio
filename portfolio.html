@@ -22,9 +22,12 @@
         .exp-role { font-weight: bold; color: #2a4d69; }
         .exp-company { font-style: italic; color: #4b86b4; }
         .exp-date { color: #888; font-size: 0.95em; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5em; }
-        .project-card { background: #f4f6f8; border-radius: 10px; box-shadow: 0 2px 8px rgba(44,62,80,0.07); padding: 1.2em; transition: transform 0.2s; }
-        .project-card:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 6px 24px rgba(44,62,80,0.12); }
+        .projects-grid {
+    display: block;
+}
+.project-card {
+    margin-bottom: 2em;
+}
         .project-title { font-weight: bold; color: #2a4d69; font-size: 1.1em; }
         .project-tech { color: #4b86b4; font-size: 0.95em; margin-bottom: 0.5em; }
         .footer { text-align: center; color: #888; margin-top: 2em; font-size: 0.95em; }
@@ -88,41 +91,50 @@
                 <li>
                     <span class="exp-role">Data Engineer</span> @ <span class="exp-company">Tata Consultancy Services, Dallas, US</span> <span class="exp-date">Feb 2024 – Present</span>
                     <ul>
-                        <li><strong>Role:</strong> Managed and manipulated large datasets using SQL and Snowflake, ensuring data integrity.</li>
-                        <li><strong>Impact:</strong> Designed and implemented ETL processes for business intelligence, developed data visualizations with Tableau and Power BI, optimized data pipelines and conducted predictive analysis.</li>
-                        <li><strong>Highlight:</strong> Improved data workflow efficiency and supported data-driven decision making.</li>
+                        <li>Performed complex SQL and Snowflake operations to manage and manipulate large datasets, ensuring data integrity and accuracy.</li>
+                        <li>Designed and implemented ETL (Extract, Transform, Load) processes, optimizing data integration and transformation from various sources to support business intelligence.</li>
+                        <li>Conducted data validations and implemented quality checks to maintain the reliability and consistency of data across multiple systems.</li>
+                        <li>Analyzed large datasets to extract meaningful insights, utilizing statistical and predictive analysis techniques to identify trends and support data-driven decision-making.</li>
+                        <li>Developed and maintained data visualizations using tools such as Tableau and Power BI, presenting insights and findings effectively to stakeholders.</li>
+                        <li>Ensured seamless data workflow across different data stage layers, maintaining the integrity and efficiency of the data pipeline, and optimizing performance.</li>
                     </ul>
                 </li>
                 <li>
                     <span class="exp-role">Software Development Engineer in Test</span> @ <span class="exp-company">Codehub Technologies, Dallas, US</span> <span class="exp-date">Sep 2023 – Jan 2024</span>
                     <ul>
-                        <li><strong>Role:</strong> Created automation scripts using Selenium and Java, developed VB scripts, Postman API, SoapUI for testing.</li>
-                        <li><strong>Impact:</strong> Worked with BDD, TDD frameworks (Cucumber, TestNG), conducted various testing types and participated in Agile ceremonies.</li>
-                        <li><strong>Highlight:</strong> Enhanced test coverage and efficiency, improved product quality.</li>
+                        <li>Created automation scripts for applications using Selenium and Java, enhancing efficiency.</li>
+                        <li>Developed VB scripts, Postman API, SoapUI for testing.</li>
+                        <li>Extensive experience with BDD, TDD frameworks like Cucumber, TestNG.</li>
+                        <li>Conducted various testing types including smoke, unit, regression, functional, integration, performance testing.</li>
+                        <li>Assisted with schema design, code review, SQL query tuning.</li>
+                        <li>Utilized Agile methodology and actively participated in Sprint Planning, Backlog Refinement, Daily Scrum meetings.</li>
                     </ul>
                 </li>
                 <li>
                     <span class="exp-role">Graduate Teaching Assistant</span> @ <span class="exp-company">University of Utah, Salt Lake City, US</span> <span class="exp-date">May 2023 – Aug 2023</span>
                     <ul>
-                        <li><strong>Role:</strong> Facilitated courses and tutoring sessions on Data Analytics and Visualization.</li>
-                        <li><strong>Impact:</strong> Assisted in data science projects and grading assignments.</li>
-                        <li><strong>Highlight:</strong> Supported student learning and project success.</li>
+                        <li>Assisted in teaching and facilitating the course, providing support to both the professor and students.</li>
+                        <li>Conducted classes and tutoring sessions on Data Analytics and visualization.</li>
+                        <li>Assisted in data science projects, grading assignments, exams, and ensuring fair and consistent evaluation.</li>
                     </ul>
                 </li>
                 <li>
                     <span class="exp-role">Data Analyst</span> @ <span class="exp-company">Tata Consultancy Services, Hyderabad, India</span> <span class="exp-date">Dec 2019 – Aug 2022</span>
                     <ul>
-                        <li><strong>Role:</strong> Enhanced query performance, designed Power BI dashboards and monthly reports.</li>
-                        <li><strong>Impact:</strong> Conducted data analysis and visualization using SQL, Tableau, Power BI, implemented ETL processes with MySQL and Alteryx.</li>
-                        <li><strong>Highlight:</strong> Reduced report generation time by 40%, improved data-driven decision support.</li>
+                        <li>Spearheaded the enhancement of query performance, leading to a 40% reduction in report generation time in a banking project, facilitating quicker and more responsive decision making.</li>
+                        <li>Designed and implemented sophisticated Power BI dashboards, seamlessly integrating data from diverse sources to achieve a 20% improvement in data visualization and insights delivery for enhanced decision support.</li>
+                        <li>Led the creation of monthly reports using Power BI, empowering stakeholders to analyze data for decision making.</li>
+                        <li>Conducted data analysis and visualization tasks using SQL and Tableau, Power BI to support the savings account management team, including analyzing customer behavior and savings trends to provide actionable insights.</li>
+                        <li>Implemented ETL process to extract data from MySQL using Alteryx and create visualizations using Power BI to provide business insights to the client.</li>
                     </ul>
                 </li>
                 <li>
                     <span class="exp-role">Associate System Engineer</span> @ <span class="exp-company">Tata Consultancy Services, Hyderabad, India</span> <span class="exp-date">Dec 2018 – Dec 2019</span>
                     <ul>
-                        <li><strong>Role:</strong> Manual and automation testing for insurance and banking projects.</li>
-                        <li><strong>Impact:</strong> Developed test plans and analyzed user stories for requirements.</li>
-                        <li><strong>Highlight:</strong> Improved test reliability and project delivery.</li>
+                        <li>Worked as a Manual and Automation Test Engineer for an Insurance and Banking project.</li>
+                        <li>Performed frontend, backend and mobile testing for the application.</li>
+                        <li>Analyzed user stories to develop business and functional requirements.</li>
+                        <li>Developed test plans to detail the testing scope, high level requirements, strategies and all the needed test data.</li>
                     </ul>
                 </li>
             </ul>
