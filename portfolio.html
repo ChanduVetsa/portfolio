@@ -15,7 +15,9 @@
         .profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(44,62,80,0.12); margin-bottom: 1em; }
         .contact { margin-bottom: 1.5em; display: flex; flex-wrap: wrap; gap: 1em; align-items: center; }
         .contact span, .contact a { display: flex; align-items: center; gap: 0.4em; }
-        .section { margin-bottom: 2em; }
+        .section { margin-bottom: 2em; padding: 2em 1.5em; background: #f8fbff; border-radius: 12px; box-shadow: 0 2px 8px rgba(44,62,80,0.06); }
+        .section:not(:first-child) { margin-top: 2em; }
+        .section h2 { margin-top: 0; }
         ul { padding-left: 1.2em; }
         .skills-list, .cert-list { display: flex; flex-wrap: wrap; gap: 1em; }
         .skills-list li, .cert-list li { background: #e3eaf2; border-radius: 4px; padding: 0.4em 1em; margin-bottom: 0.5em; }
@@ -27,19 +29,28 @@
 }
 .project-card {
     margin-bottom: 2em;
+    transition: box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+    border-radius: 10px;
+    background: #fff;
 }
+.project-card:hover { box-shadow: 0 8px 24px rgba(44,62,80,0.18); transform: translateY(-4px) scale(1.02); }
         .project-title { font-weight: bold; color: #2a4d69; font-size: 1.1em; }
         .project-tech { color: #4b86b4; font-size: 0.95em; margin-bottom: 0.5em; }
-        .footer { text-align: center; color: #888; margin-top: 2em; font-size: 0.95em; }
+        .footer { text-align: center; color: #888; margin-top: 2em; font-size: 0.95em; background: #e3eaf2; border-radius: 8px; padding: 1em; }
         a { color: #2a4d69; text-decoration: none; }
         a:hover { text-decoration: underline; }
         @media (max-width: 600px) {
             .container { padding: 16px; }
             h1 { font-size: 2em; }
+            .section { padding: 1em 0.5em; }
         }
-        nav { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; }
-        nav a { font-weight: 500; color: #2a4d69; padding: 0.5em 1em; border-radius: 6px; transition: background 0.2s; }
-        nav a:hover { background: #e3eaf2; }
+        nav { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; background: #e3eaf2; border-radius: 8px; box-shadow: 0 2px 8px rgba(44,62,80,0.06); }
+        nav a { font-weight: 500; color: #2a4d69; padding: 0.5em 1em; border-radius: 6px; transition: background 0.2s, color 0.2s; }
+        nav a:hover { background: #4b86b4; color: #fff; }
+        button[type="submit"] { background:#2a4d69;color:#fff;padding:0.6em 1.2em;border:none;border-radius:6px;cursor:pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.12); transition: background 0.2s, box-shadow 0.2s; }
+button[type="submit"]:hover { background: #4b86b4; box-shadow: 0 4px 16px rgba(44,62,80,0.18); }
+blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
     </style>
 </head>
 <body>
@@ -255,7 +266,7 @@
                 <input type="email" id="email" name="email" required style="width:100%;margin-bottom:0.7em;"><br>
                 <label for="message">Message:</label><br>
                 <textarea id="message" name="message" rows="4" required style="width:100%;margin-bottom:0.7em;"></textarea><br>
-                <button type="submit" style="background:#2a4d69;color:#fff;padding:0.6em 1.2em;border:none;border-radius:6px;cursor:pointer;">Send</button>
+                <button type="submit" style="background:#2a4d69;color:#fff;padding:0.6em 1.2em;border:none;border-radius:6px;cursor:pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.12); transition: background 0.2s, box-shadow 0.2s;">Send</button>
             </form>
         </div>
         <div class="footer">
