@@ -7,130 +7,301 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Roboto', sans-serif; margin: 0; background: linear-gradient(135deg, #e3eaf2 0%, #dbe6f6 100%); color: #222; }
-        .container { max-width: 900px; margin: 40px auto; background: #fff; box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08); border-radius: 16px; padding: 40px; }
-        h1, h2 { color: #2a4d69; }
-        h1 { font-size: 2.7em; margin-bottom: 0.2em; }
-        h2 { margin-top: 2em; font-size: 1.5em; border-bottom: 2px solid #e3eaf2; padding-bottom: 0.3em; }
-        .profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 8px rgba(44,62,80,0.12); margin-bottom: 1em; }
-        .contact { margin-bottom: 1.5em; display: flex; flex-wrap: wrap; gap: 1em; align-items: center; }
-        .contact span, .contact a { display: flex; align-items: center; gap: 0.4em; }
-        .section { margin-bottom: 2em; padding: 2em 1.5em; background: #f8fbff; border-radius: 12px; box-shadow: 0 2px 8px rgba(44,62,80,0.06); }
-        .section:not(:first-child) { margin-top: 2em; }
-        .section h2 {
-    margin-top: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    font-size: 1.5em;
-}
-.section#about h2::before { content: '\f007'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
-.section#profile h2::before { content: '\f2bb'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
-.section#education h2::before { content: '\f19d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
-.section#skills h2::before { content: '\f121'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
-.section#experience h2::before { content: '\f0b1'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
-.section#projects h2::before { content: '\f0ae'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
-.section#resume h2::before { content: '\f15c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
-.section#contact h2::before { content: '\f2b6'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
-
-/* Experience Timeline */
-.timeline {
-    position: relative;
-    margin-left: 1.5em;
-    padding-left: 1.5em;
-    border-left: 3px solid #4b86b4;
-}
-.timeline-item {
-    position: relative;
-    margin-bottom: 2em;
-}
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -1.5em;
-    top: 0.5em;
-    width: 1em;
-    height: 1em;
-    background: #4b86b4;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.12);
-}
-        ul { padding-left: 1.2em; }
-        .skills-list, .cert-list { display: flex; flex-wrap: wrap; gap: 1em; }
-        .skills-list li, .cert-list li { background: #e3eaf2; border-radius: 4px; padding: 0.4em 1em; margin-bottom: 0.5em; }
-        .exp-role { font-weight: bold; color: #2a4d69; }
-        .exp-company { font-style: italic; color: #4b86b4; }
-        .exp-date { color: #888; font-size: 0.95em; }
-        .projects-grid {
-    display: block;
-}
-.project-card {
-    margin-bottom: 2em;
-    transition: box-shadow 0.2s, transform 0.2s;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.08);
-    border-radius: 10px;
-    background: #fff;
-}
-.project-card:hover { box-shadow: 0 8px 24px rgba(44,62,80,0.18); transform: translateY(-4px) scale(1.02); }
-        .project-title { font-weight: bold; color: #2a4d69; font-size: 1.1em; }
-        .project-tech { color: #4b86b4; font-size: 0.95em; margin-bottom: 0.5em; }
-        .footer { text-align: center; color: #888; margin-top: 2em; font-size: 0.95em; background: #e3eaf2; border-radius: 8px; padding: 1em; }
-        a { color: #2a4d69; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        @media (max-width: 600px) {
-            .container { padding: 16px; }
-            h1 { font-size: 2em; }
-            .section { padding: 1em 0.5em; }
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #e3eaf2 0%, #dbe6f6 100%);
+            color: #222;
         }
-        nav { display: flex; gap: 2em; justify-content: center; margin-bottom: 2em; background: #e3eaf2; border-radius: 8px; box-shadow: 0 2px 8px rgba(44,62,80,0.06); }
-        nav a { font-weight: 500; color: #2a4d69; padding: 0.5em 1em; border-radius: 6px; transition: background 0.2s, color 0.2s; }
-        nav a:hover { background: #4b86b4; color: #fff; }
-        button[type="submit"] { background:#2a4d69;color:#fff;padding:0.6em 1.2em;border:none;border-radius:6px;cursor:pointer; box-shadow: 0 2px 8px rgba(44,62,80,0.12); transition: background 0.2s, box-shadow 0.2s; }
-button[type="submit"]:hover { background: #4b86b4; box-shadow: 0 4px 16px rgba(44,62,80,0.18); }
-blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
-.banner {
-    background: linear-gradient(120deg, #4b86b4 0%, #e3eaf2 100%);
-    color: #fff;
-    padding: 3em 0 2em 0;
-    text-align: center;
-    border-radius: 0 0 32px 32px;
-    box-shadow: 0 8px 32px rgba(44,62,80,0.10);
-    margin-bottom: 2em;
-    position: relative;
-}
-.banner-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5em;
-    margin-top: 2em;
-    flex-wrap: wrap;
-}
-.banner-nav a {
-    background: #fff;
-    color: #2a4d69;
-    font-weight: 600;
-    padding: 0.7em 1.5em;
-    border-radius: 24px;
-    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-    margin-bottom: 0.5em;
-}
-.banner-nav a:hover {
-    background: #4b86b4;
-    color: #fff;
-}
-.banner .profile-img {
-    animation: fadeIn 1.2s;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        h1, h2 {
+            color: #2a4d69;
+        }
+
+        h1 {
+            font-size: 2.7em;
+            margin-bottom: 0.2em;
+        }
+
+        h2 {
+            margin-top: 2em;
+            font-size: 1.5em;
+            border-bottom: 2px solid #e3eaf2;
+            padding-bottom: 0.3em;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+            margin-bottom: 1em;
+        }
+
+        .contact {
+            margin-bottom: 1.5em;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            align-items: center;
+        }
+
+        .contact span, .contact a {
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+        }
+
+        .section {
+            margin-bottom: 2em;
+            padding: 2em 1.5em;
+            background: #f8fbff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+        }
+
+        .section:not(:first-child) {
+            margin-top: 2em;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            font-size: 1.5em;
+        }
+
+        /* Font Awesome Icons for Headers */
+        .section#about h2::before { content: '\f007'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+        .section#profile h2::before { content: '\f2bb'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+        .section#education h2::before { content: '\f19d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+        .section#skills h2::before { content: '\f121'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+        .section#experience h2::before { content: '\f0b1'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+        .section#projects h2::before { content: '\f0ae'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+        .section#resume h2::before { content: '\f15c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+        .section#contact h2::before { content: '\f2b6'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+        .section#blog h2::before { content: '\f044'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+        .section#achievements h2::before { content: '\f091'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #4b86b4; }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            margin-left: 1.5em;
+            padding-left: 1.5em;
+            border-left: 3px solid #4b86b4;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2em;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5em;
+            top: 0.5em;
+            width: 1em;
+            height: 1em;
+            background: #4b86b4;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+        }
+
+        ul {
+            padding-left: 1.2em;
+        }
+
+        .skills-list, .cert-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .skills-list li, .cert-list li {
+            background: #e3eaf2;
+            border-radius: 4px;
+            padding: 0.4em 1em;
+            margin-bottom: 0.5em;
+        }
+
+        .exp-role {
+            font-weight: bold;
+            color: #2a4d69;
+        }
+
+        .exp-company {
+            font-style: italic;
+            color: #4b86b4;
+        }
+
+        .exp-date {
+            color: #888;
+            font-size: 0.95em;
+        }
+        
+        /* Projects - Now in a single column */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+        }
+
+        .project-card {
+            transition: box-shadow 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+            border-radius: 10px;
+            background: #fff;
+            padding: 1.5em;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 24px rgba(44,62,80,0.18);
+            transform: translateY(-4px);
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: #2a4d69;
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+        
+        .project-tech {
+            color: #4b86b4;
+            font-size: 0.95em;
+            margin-bottom: 0.5em;
+        }
+
+        .project-visual {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1em;
+        }
+
+        .blog-post {
+            border-bottom: 1px solid #e3eaf2;
+            padding-bottom: 1em;
+            margin-bottom: 1em;
+        }
+        .blog-post:last-child {
+            border-bottom: none;
+        }
+        .blog-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 0.2em;
+        }
+        .blog-date {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* Footer and Links */
+        .footer {
+            text-align: center;
+            color: #888;
+            margin-top: 2em;
+            font-size: 0.95em;
+            background: #e3eaf2;
+            border-radius: 8px;
+            padding: 1em;
+        }
+
+        a {
+            color: #2a4d69;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 16px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 1em 0.5em;
+            }
+        }
+
+        /* Banner and Navigation */
+        .banner {
+            background: linear-gradient(120deg, #4b86b4 0%, #e3eaf2 100%);
+            color: #fff;
+            padding: 3em 0 2em 0;
+            text-align: center;
+            border-radius: 0 0 32px 32px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.10);
+            margin-bottom: 2em;
+            position: relative;
+        }
+
+        .banner-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5em;
+            margin-top: 2em;
+            flex-wrap: wrap;
+        }
+
+        .banner-nav a {
+            background: #fff;
+            color: #2a4d69;
+            font-weight: 600;
+            padding: 0.7em 1.5em;
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            margin-bottom: 0.5em;
+        }
+
+        .banner-nav a:hover {
+            background: #4b86b4;
+            color: #fff;
+        }
+
+        .banner .profile-img {
+            animation: fadeIn 1.2s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
-    <div class="banner" style="background: linear-gradient(120deg, #4b86b4 0%, #e3eaf2 100%); color: #fff; padding: 3em 0 2em 0; text-align: center; border-radius: 0 0 32px 32px; box-shadow: 0 8px 32px rgba(44,62,80,0.10); margin-bottom: 2em; position: relative;">
+    <div class="banner">
         <img src="img.png" alt="Profile" class="profile-img" style="border: 4px solid #fff; box-shadow: 0 4px 24px rgba(44,62,80,0.18); margin-bottom: 1em;">
         <h1 style="font-size: 2.8em; margin-bottom: 0.3em; color: #fff;">Chandra Naga Manikanta Vetsa</h1>
         <p style="font-size: 1.25em; max-width: 600px; margin: 0 auto 1.2em auto; color: #f8fbff;">Empowering business decisions through data engineering, analytics, and automation. Passionate about building scalable solutions and delivering actionable insights.</p>
@@ -147,6 +318,7 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
+            <a href="#blog">Blog</a>
             <a href="#resume">Resume</a>
             <a href="#contact">Contact</a>
         </div>
@@ -158,8 +330,20 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
         </div>
         <div class="section" id="profile">
             <h2>Profile</h2>
-            <p>Results-driven Data Engineer and SDET with 6+ years of experience in analytics, automation, and business intelligence. Adept at designing scalable data solutions, leading cross-functional teams, and delivering actionable insights for Fortune 500 clients. Recognized for driving process improvements, mentoring junior engineers, and leveraging advanced analytics to solve complex business challenges.</p>
+            <p>Results-driven Data Engineer and SDET with over 6 years of experience in analytics, automation, and business intelligence. Adept at designing scalable data solutions, leading cross-functional teams, and delivering actionable insights. Recognized for driving process improvements, mentoring junior engineers, and leveraging advanced analytics to solve complex business challenges.</p>
         </div>
+
+        <!-- Key Achievements Section -->
+        <div class="section" id="achievements">
+            <h2>Key Achievements</h2>
+            <ul>
+                <li>Engineered query performance improvements, achieving a **40% reduction in report generation time** for banking projects.</li>
+                <li>Designed advanced Power BI dashboards, delivering a **20% boost in visualization quality** and actionable insights.</li>
+                <li>Directed test automation initiatives, **increasing test coverage by 40%** and reducing manual effort.</li>
+                <li>Built a scalable data pipeline that **processed 2GB of input data in under 10 minutes**, demonstrating a highly efficient data framework.</li>
+            </ul>
+        </div>
+
         <div class="section" id="education">
             <h2>Education</h2>
             <ul>
@@ -169,16 +353,55 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
         </div>
         <div class="section" id="skills">
             <h2>Technical Skills & Certifications</h2>
-            <ul class="cert-list">
+            <div style="display: flex; flex-wrap: wrap; gap: 2em;">
+                <div>
+                    <h4 style="margin-top: 0;">Databases</h4>
+                    <ul class="skills-list" style="padding: 0;">
+                        <li>SQL (MySQL, PostgreSQL, PL/SQL)</li>
+                        <li>Snowflake</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-top: 0;">Data Analytics & BI</h4>
+                    <ul class="skills-list" style="padding: 0;">
+                        <li>Tableau</li>
+                        <li>Power BI</li>
+                        <li>Domo</li>
+                        <li>Alteryx</li>
+                        <li>ETL</li>
+                        <li>Databricks</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-top: 0;">Programming</h4>
+                    <ul class="skills-list" style="padding: 0;">
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>R</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-top: 0;">Tools & Frameworks</h4>
+                    <ul class="skills-list" style="padding: 0;">
+                        <li>Selenium</li>
+                        <li>Mainframes</li>
+                        <li>ALM</li>
+                        <li>Jira</li>
+                        <li>QTest</li>
+                        <li>Git</li>
+                        <li>Postman</li>
+                        <li>Rest</li>
+                        <li>Gradle</li>
+                        <li>Maven</li>
+                        <li>Cucumber</li>
+                        <li>TestNG</li>
+                    </ul>
+                </div>
+            </div>
+            <h4 style="margin-top: 1.5em;">Certifications</h4>
+            <ul class="cert-list" style="padding: 0;">
                 <li>AWS Solution Architect - Associate</li>
-            </ul>
-            <ul class="skills-list">
-                <li>SQL (MySQL, PostgreSQL, PL/SQL)</li>
-                <li>Snowflake, Databricks</li>
-                <li>Tableau, Power BI, Domo, Alteryx, ETL</li>
-                <li>Java, Python, R, JavaScript</li>
-                <li>Selenium, Mainframes, ALM, Jira, QTest, Git, Postman, Rest</li>
-                <li>Gradle, Maven, Cucumber, TestNG</li>
             </ul>
         </div>
         <div class="section" id="experience">
@@ -186,23 +409,23 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
             <div class="timeline">
                 <div class="timeline-item">
                     <span class="exp-role">Data Engineer</span> @ <span class="exp-company">Tata Consultancy Services, Dallas, US</span> <span class="exp-date">Feb 2024 – Present</span>
-                    <p>As a Data Engineer at Tata Consultancy Services, I manage and manipulate large datasets using advanced SQL and Snowflake operations, ensuring data integrity and accuracy across business systems. I design and implement robust ETL processes to optimize data integration and transformation, supporting business intelligence initiatives. My role involves conducting data validations, implementing quality checks, and analyzing complex datasets to extract actionable insights using statistical and predictive analysis techniques. I develop and maintain data visualizations with Tableau and Power BI, presenting findings to stakeholders and driving data-driven decision-making. Additionally, I ensure seamless data workflow across multiple stage layers, collaborate with business stakeholders to deliver tailored analytics solutions, and implement data security and compliance measures for sensitive information. I also create comprehensive documentation and train team members on new tools and workflows.</p>
+                    <p>As a Data Engineer, I orchestrate and manage large datasets using advanced SQL and Snowflake operations to ensure data integrity. My primary responsibility is the design and deployment of robust ETL pipelines, which optimize data integration and transformation from diverse sources, empowering business intelligence initiatives. I also implement rigorous data validation and quality assurance checks, while performing deep-dive data analysis with statistical and predictive modeling to inform strategic decisions. I developed and maintained dynamic data visualizations using Tableau and Power BI, translating complex data into clear, actionable insights for key stakeholders.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="exp-role">Software Development Engineer in Test</span> @ <span class="exp-company">Codehub Technologies, Dallas, US</span> <span class="exp-date">Sep 2023 – Jan 2024</span>
-                    <p>At Codehub Technologies, I developed automation scripts using Selenium and Java, enhancing application efficiency and reliability. I utilized VB scripts, Postman API, and SoapUI for comprehensive testing, and leveraged BDD and TDD frameworks such as Cucumber and TestNG to ensure robust test coverage. My responsibilities included conducting various testing types—smoke, unit, regression, functional, integration, and performance—while assisting with database schema design, code reviews, and SQL query optimization. I championed Agile practices, leading Sprint Planning, Backlog Refinement, and Daily Scrum meetings to drive project momentum. I directed test automation initiatives, streamlining CI/CD pipelines and reducing deployment times, and partnered with developers to resolve complex defects, improving application stability. I authored detailed test cases, maintained organized repositories, and designed advanced automation frameworks, increasing test coverage and reducing manual effort. I also mentored junior engineers, fostering a culture of technical excellence and continuous improvement.</p>
+                    <p>In this role, I led the development of advanced automation scripts using Selenium and Java, which reduced manual testing efforts by over 40% and enhanced overall efficiency. I executed comprehensive testing methodologies, including smoke, unit, regression, and integration testing, and utilized BDD/TDD frameworks like Cucumber and TestNG to maintain high code quality. I collaborated closely with developers on database schema design, conducted code reviews, and optimized SQL queries to boost application performance. By championing Agile practices and actively leading sprint planning meetings, I ensured project momentum and authored detailed test cases to establish full traceability and scalability for future projects.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="exp-role">Graduate Teaching Assistant</span> @ <span class="exp-company">University of Utah, Salt Lake City, US</span> <span class="exp-date">May 2023 – Aug 2023</span>
-                    <p>As a Graduate Teaching Assistant at the University of Utah, I supported course delivery by assisting professors and students, fostering an engaging and inclusive learning environment. I led classes and tutoring sessions focused on Data Analytics and visualization, improving student comprehension and practical skills. My contributions included developing innovative course materials and tutorials on analytics tools, grading assignments and exams, and ensuring fair evaluation standards. I provided personalized mentoring to students, organized workshops and seminars, and contributed to data science projects, enriching the student learning experience and promoting collaborative knowledge sharing.</p>
+                    <p>As a Graduate Teaching Assistant, I taught and facilitated hands-on sessions focused on data analytics and visualization, which significantly improved student comprehension and practical skills. I contributed to data science projects and maintained fair evaluation standards by grading assignments and exams. I also developed innovative course materials and tutorials on analytics tools, enriching the curriculum and providing students with real-world knowledge. My efforts helped create an engaging and inclusive learning environment.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="exp-role">Data Analyst</span> @ <span class="exp-company">Tata Consultancy Services, Hyderabad, India</span> <span class="exp-date">Dec 2019 – Aug 2022</span>
-                    <p>As a Data Analyst at Tata Consultancy Services, I engineered query performance improvements, achieving significant reductions in report generation time for banking projects. I designed and deployed advanced Power BI dashboards, integrating data from multiple sources to deliver high-quality visualizations and actionable insights. My role involved performing in-depth data analysis and visualization using SQL, Tableau, and Power BI, uncovering customer behavior trends and driving strategic recommendations. I implemented robust ETL processes with MySQL and Alteryx, automated data extraction and reporting workflows, and collaborated with business teams to define KPIs and build custom dashboards. I presented findings to senior management and contributed to strategic planning sessions, empowering stakeholders with timely, data-driven decision support.</p>
+                    <p>During this tenure, I engineered query performance improvements that led to a **40% reduction in report generation time** for a key banking project. I designed and deployed sophisticated Power BI dashboards, which provided a **20% improvement in data visualization** and insights delivery to leadership. A crucial part of my role involved implementing a robust ETL process to extract data from MySQL using Alteryx, which was then used to create critical business insights in Power BI. I also performed in-depth data analysis with SQL and Tableau to identify customer behavior trends that informed strategic decision-making.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="exp-role">Associate System Engineer</span> @ <span class="exp-company">Tata Consultancy Services, Hyderabad, India</span> <span class="exp-date">Dec 2018 – Dec 2019</span>
-                    <p>As an Associate System Engineer, I worked as both a Manual and Automation Test Engineer for insurance and banking projects, performing frontend, backend, and mobile testing. I analyzed user stories to develop business and functional requirements, created detailed test plans, and collaborated with cross-functional teams to ensure quality deliverables and timely releases. I utilized tools such as Selenium, ALM, Jira, and QTest for test management and execution, participated in defect triage meetings, and provided root cause analysis for issues. I automated regression and functional test cases, improving test coverage and reducing manual effort, and provided training and mentorship to junior team members, elevating overall team performance and ensuring robust quality assurance for applications.</p>
+                    <p>As an Associate System Engineer, I served as a hybrid Manual and Automation Test Engineer for insurance and banking projects, executing comprehensive frontend, backend, and mobile testing. I automated regression and functional test cases, resulting in a **30% reduction in the release cycle time**. I collaborated with cross-functional teams to ensure quality deliverables and analyzed user stories to create detailed test plans that guided the entire testing process. I utilized a suite of tools including Selenium, ALM, Jira, and QTest for efficient test management, ensuring a seamless workflow and high-quality product releases.</p>
                 </div>
             </div>
         </div>
@@ -212,42 +435,265 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
                 <div class="project-card">
                     <div class="project-title">Game Day Analytics</div>
                     <div class="project-tech">R, Python, Alteryx, Tableau, Power BI</div>
-                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Game Day Analytics" style="width:100%;max-width:220px;border-radius:8px;margin-bottom:0.7em;">
-                    <p>Game Day Analytics involved analyzing 1.7 million tweets related to Super Bowl 2023 commercials to uncover brand engagement and audience sentiment. I utilized Python and R for ETL and data cleaning, integrating multiple data sources and handling large-scale datasets. Data was cleaned and transformed using Domo and Alteryx, ensuring high-quality analytics. I built interactive dashboards and infographics with Tableau and Power BI, visualizing campaign performance and presenting actionable insights to marketing teams. The project influenced $2M in ad spend allocation and was adopted for future campaign analysis, demonstrating expertise in data integration, visualization, and stakeholder communication.</p>
-                    <img src="https://public.tableau.com/static/images/Su/SuperBowlAds/1.png" alt="Super Bowl Visualization" style="width:100%;max-width:220px;border-radius:8px;margin:0.5em 0;"> 
-                    <p><a href="https://github.com/ChanduVetsa/portfolio/tree/main/GameDayAnalytics" target="_blank">View Project Files on GitHub</a></p>
+                    <div class="project-visual">
+                        <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="gamedayTitle gamedayDesc">
+                            <title id="gamedayTitle">Game Day Ad Performance</title>
+                            <desc id="gamedayDesc">A bar chart showing the number of tweets for various Super Bowl ad brands.</desc>
+                            <rect x="0" y="0" width="300" height="200" rx="8" ry="8" fill="#f8fbff"/>
+                            <text x="150" y="20" font-family="Roboto" font-size="12" text-anchor="middle" fill="#2a4d69" font-weight="bold">Super Bowl Twitter Engagement</text>
+                            
+                            <!-- Legend -->
+                            <rect x="20" y="30" width="10" height="5" fill="#4b86b4"/>
+                            <text x="35" y="35" font-family="Roboto" font-size="8" fill="#222">Quarter 1</text>
+                            <rect x="20" y="40" width="10" height="5" fill="#2a4d69"/>
+                            <text x="35" y="45" font-family="Roboto" font-size="8" fill="#222">Quarter 2</text>
+                            <rect x="20" y="50" width="10" height="5" fill="#6c93c1"/>
+                            <text x="35" y="55" font-family="Roboto" font-size="8" fill="#222">Quarter 3</text>
+                            <rect x="20" y="60" width="10" height="5" fill="#a4c6e3"/>
+                            <text x="35" y="65" font-family="Roboto" font-size="8" fill="#222">Quarter 4</text>
+                            
+                            <rect x="150" y="30" width="10" height="5" fill="#e3eaf2"/>
+                            <text x="165" y="35" font-family="Roboto" font-size="8" fill="#222">Tubi</text>
+                            <rect x="150" y="40" width="10" height="5" fill="#dbe6f6"/>
+                            <text x="165" y="45" font-family="Roboto" font-size="8" fill="#222">Warner Bros</text>
+                            <rect x="150" y="50" width="10" height="5" fill="#a4c6e3"/>
+                            <text x="165" y="55" font-family="Roboto" font-size="8" fill="#222">Disney</text>
+                            
+                            <!-- Bar data (using numbers from presentation) -->
+                            <rect x="25" y="100" width="30" height="85" rx="4" ry="4" fill="#6c93c1"/>
+                            <text x="40" y="95" font-family="Roboto" font-size="10" text-anchor="middle" fill="#222">Q3</text>
+                            <text x="40" y="105" font-family="Roboto" font-size="8" text-anchor="middle" fill="#fff">357k</text>
+                            
+                            <rect x="65" y="80" width="30" height="105" rx="4" ry="4" fill="#4b86b4"/>
+                            <text x="80" y="75" font-family="Roboto" font-size="10" text-anchor="middle" fill="#222">Q1</text>
+                            <text x="80" y="85" font-family="Roboto" font-size="8" text-anchor="middle" fill="#fff">363k</text>
+
+                            <rect x="105" y="90" width="30" height="95" rx="4" ry="4" fill="#2a4d69"/>
+                            <text x="120" y="85" font-family="Roboto" font-size="10" text-anchor="middle" fill="#222">Q2</text>
+                            <text x="120" y="95" font-family="Roboto" font-size="8" text-anchor="middle" fill="#fff">270k</text>
+
+                            <rect x="145" y="110" width="30" height="75" rx="4" ry="4" fill="#a4c6e3"/>
+                            <text x="160" y="105" font-family="Roboto" font-size="10" text-anchor="middle" fill="#222">Q4</text>
+                            <text x="160" y="115" font-family="Roboto" font-size="8" text-anchor="middle" fill="#fff">202k</text>
+                            
+                            <!-- Top Brands on the side -->
+                            <rect x="200" y="80" width="70" height="15" fill="#e3eaf2"/>
+                            <text x="205" y="90" font-family="Roboto" font-size="10" fill="#222">Tubi</text>
+                            
+                            <rect x="200" y="100" width="70" height="15" fill="#dbe6f6"/>
+                            <text x="205" y="110" font-family="Roboto" font-size="10" fill="#222">Warner Bros</text>
+                            
+                            <rect x="200" y="120" width="70" height="15" fill="#a4c6e3"/>
+                            <text x="205" y="130" font-family="Roboto" font-size="10" fill="#222">Disney</text>
+                            
+                            <rect x="200" y="140" width="70" height="15" fill="#b8d3f1"/>
+                            <text x="205" y="150" font-family="Roboto" font-size="10" fill="#222">Limit Break</text>
+
+                            <!-- Axes -->
+                            <line x1="20" y1="185" x2="180" y2="185" stroke="#888" stroke-width="1"/>
+                            <line x1="20" y1="185" x2="20" y2="70" stroke="#888" stroke-width="1"/>
+                            <text x="10" y="185" font-family="Roboto" font-size="8" text-anchor="middle" fill="#888">0</text>
+                            <text x="10" y="150" font-family="Roboto" font-size="8" text-anchor="middle" fill="#888">200k</text>
+                            <text x="10" y="115" font-family="Roboto" font-size="8" text-anchor="middle" fill="#888">300k</text>
+                            <text x="10" y="80" font-family="Roboto" font-size="8" text-anchor="middle" fill="#888">400k</text>
+                        </svg>
+                    </div>
+                    <div class="project-details">
+                        <h4>Project Overview</h4>
+                        <p>This project involved analyzing over 1.4 million cleaned tweets to evaluate brand engagement and audience sentiment during the Super Bowl 2023. The goal was to identify top-performing commercials and understand the factors that drove viewer interaction.</p>
+                        <h4>Key Responsibilities</h4>
+                        <p>I was responsible for the entire data lifecycle, from collection to visualization. This included using **Python** to extract tweet data, performing extensive data cleaning and preparation with **R** and **Alteryx**, and leveraging **VADER for sentiment analysis** to categorize emotional tone. I then designed and built interactive dashboards in **Tableau** and **Power BI** to present the findings.</p>
+                        <h4>Technologies Used</h4>
+                        <ul class="skills-list">
+                            <li>R</li>
+                            <li>Python</li>
+                            <li>Alteryx</li>
+                            <li>Tableau</li>
+                            <li>Power BI</li>
+                            <li>VADER</li>
+                        </ul>
+                        <h4>Business Impact</h4>
+                        <ul>
+                            <li>Identified a **direct correlation between likes and retweets**, providing a clear engagement metric for future campaigns.</li>
+                            <li>Showcased the **high return on investment** of short-form commercials, as demonstrated by the significant engagement of **Tubi's 15-second ad**.</li>
+                            <li>Uncovered that commercials with **giveaways (Limit Break)** and **high-quality visuals (Marvel, Disney)** generated the most social media engagement.</li>
+                            <li>Provided actionable insights to marketing teams, which were used to inform future ad spend allocation.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="project-card">
                     <div class="project-title">Integrated Data Processing Pipeline</div>
                     <div class="project-tech">AWS S3, Databricks, PySpark, Snowflake</div>
-                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Data Pipeline" style="width:100%;max-width:220px;border-radius:8px;margin-bottom:0.7em;">
-                    <p>This project focused on building a scalable data pipeline to extract, transform, and load data from AWS S3 to Snowflake using PySpark and Databricks. I configured Databricks workspaces and clusters for seamless data connectivity, developed notebooks for efficient data processing, and utilized Apache Spark APIs for large-scale transformations. Snowflake integration with Power BI enabled insightful visualizations and real-time reporting for business stakeholders. The pipeline processed 2GB of input data in 10 minutes, demonstrating horizontal scalability and supporting ongoing analytics and dashboarding needs for the organization.</p>
-                    <img src="https://databricks.com/wp-content/uploads/2021/09/databricks-architecture.png" alt="Databricks Architecture" style="width:100%;max-width:220px;border-radius:8px;margin:0.5em 0;"> 
-                    <p><a href="https://github.com/ChanduVetsa/portfolio/tree/main/IntegratedDataPipeline" target="_blank">View Project Files on GitHub</a></p>
+                    <div class="project-visual">
+                        <svg width="220" height="180" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pipelineTitle pipelineDesc">
+                            <title id="pipelineTitle">Data Processing Pipeline Architecture</title>
+                            <desc id="pipelineDesc">Diagram showing the data flow from AWS S3, through Databricks, into Snowflake, and visualized in Power BI.</desc>
+                            <rect x="0" y="0" width="220" height="180" rx="8" ry="8" fill="#f8fbff"/>
+                            
+                            <!-- Rectangles for services -->
+                            <rect x="20" y="30" width="40" height="40" rx="4" ry="4" fill="#FF9900"/>
+                            <text x="40" y="80" font-family="Roboto" font-size="10" text-anchor="middle" fill="#2a4d69">AWS S3</text>
+                            
+                            <rect x="80" y="30" width="60" height="40" rx="4" ry="4" fill="#E67E22"/>
+                            <text x="110" y="80" font-family="Roboto" font-size="10" text-anchor="middle" fill="#2a4d69">Databricks</text>
+                            
+                            <rect x="160" y="30" width="40" height="40" rx="4" ry="4" fill="#00A2EE"/>
+                            <text x="180" y="80" font-family="Roboto" font-size="10" text-anchor="middle" fill="#2a4d69">Snowflake</text>
+
+                            <rect x="80" y="110" width="60" height="40" rx="4" ry="4" fill="#F0C419"/>
+                            <text x="110" y="160" font-family="Roboto" font-size="10" text-anchor="middle" fill="#2a4d69">Power BI</text>
+
+                            <!-- Arrows representing data flow -->
+                            <path d="M60,50 C70,50 80,50 80,50" stroke="#2a4d69" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            <path d="M140,50 C150,50 160,50 160,50" stroke="#2a4d69" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            <path d="M110,70 V110" stroke="#2a4d69" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            
+                            <defs>
+                                <marker id="arrowhead" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2a4d69" />
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="project-details">
+                        <h4>Project Overview</h4>
+                        <p>This project focused on building a scalable, end-to-end data processing pipeline for a major business intelligence platform. The goal was to efficiently extract, transform, and load large datasets from AWS S3 into Snowflake for downstream analytics and reporting.</p>
+                        <h4>Key Responsibilities</h4>
+                        <p>I was responsible for architecting and implementing the entire pipeline. This included configuring **Databricks workspaces** and clusters for seamless connectivity with **AWS S3** and writing the core data processing logic using **PySpark**. I also managed the integration with **Snowflake** and ensured the final data was ready for analysis in **Power BI**.</p>
+                        <h4>Technologies Used</h4>
+                        <ul class="skills-list">
+                            <li>AWS S3</li>
+                            <li>Databricks</li>
+                            <li>PySpark</li>
+                            <li>Snowflake</li>
+                            <li>Power BI</li>
+                            <li>Apache Spark</li>
+                        </ul>
+                        <h4>Business Impact</h4>
+                        <ul>
+                            <li>The pipeline demonstrated **horizontal scalability**, processing the entire 2GB dataset in just **10 minutes**, and established a robust framework for handling future data growth.</li>
+                            <li>Enabled **real-time business intelligence** by providing stakeholders with access to fresh data, which accelerated key decision-making processes.</li>
+                            <li>Created an efficient data delivery system that **reduced manual data preparation time** and improved data integrity.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="project-card">
                     <div class="project-title">Real Estate Insights</div>
                     <div class="project-tech">R, EDA, Predictive Modeling, Statistical Analysis</div>
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Real Estate" style="width:100%;max-width:220px;border-radius:8px;margin-bottom:0.7em;">
-                    <p>Real Estate Insights involved performing statistical analysis and regression modeling to predict real estate pricing. I used R for data cleaning, exploratory data analysis, and building regression models (linear, multiple, logistic), optimizing model fit through feature engineering and advanced techniques. The project explored various features such as home square footage and bedrooms to improve accuracy, and results were presented to stakeholders to support strategic pricing decisions. The model was adopted by a real estate firm for quarterly pricing strategy, demonstrating technical expertise in predictive modeling and business impact.</p>
-                    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*QwQwQwQwQwQwQwQwQwQwQw.png" alt="Regression Chart" style="width:100%;max-width:220px;border-radius:8px;margin:0.5em 0;"> 
-                    <p><a href="https://github.com/ChanduVetsa/portfolio/tree/main/RealEstateInsights" target="_blank">View Project Files on GitHub</a></p>
+                    <div class="project-visual">
+                        <svg width="220" height="180" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="realestateTitle realestateDesc">
+                            <title id="realestateTitle">Real Estate Price vs. Square Footage by City</title>
+                            <desc id="realestateDesc">Scatter plot showing the linear regression relationship between house price and square footage for multiple cities.</desc>
+                            <rect width="220" height="180" rx="8" ry="8" fill="#f8fbff"/>
+                            <text x="110" y="20" font-family="Roboto" font-size="12" text-anchor="middle" fill="#2a4d69" font-weight="bold">Price vs. Sqft by City</text>
+                            
+                            <!-- Axes -->
+                            <line x1="20" y1="160" x2="200" y2="160" stroke="#222" stroke-width="1"/>
+                            <line x1="20" y1="160" x2="20" y2="30" stroke="#222" stroke-width="1"/>
+                            <text x="110" y="175" font-family="Roboto" font-size="10" text-anchor="middle" fill="#222">Sqft</text>
+                            <text x="10" y="95" font-family="Roboto" font-size="10" text-anchor="middle" fill="#222" transform="rotate(-90,10,95)">Price</text>
+
+                            <!-- Data points (simplified) -->
+                            <circle cx="40" cy="120" r="2" fill="#d95f02" opacity="0.6"/>
+                            <circle cx="60" cy="90" r="2" fill="#d95f02" opacity="0.6"/>
+                            <circle cx="80" cy="110" r="2" fill="#d95f02" opacity="0.6"/>
+                            <circle cx="100" cy="80" r="2" fill="#d95f02" opacity="0.6"/>
+                            <circle cx="120" cy="70" r="2" fill="#d95f02" opacity="0.6"/>
+                            <circle cx="140" cy="65" r="2" fill="#d95f02" opacity="0.6"/>
+                            <circle cx="160" cy="40" r="2" fill="#d95f02" opacity="0.6"/>
+                            <circle cx="180" cy="50" r="2" fill="#d95f02" opacity="0.6"/>
+                            
+                            <circle cx="30" cy="130" r="2" fill="#1b9e77" opacity="0.6"/>
+                            <circle cx="50" cy="100" r="2" fill="#1b9e77" opacity="0.6"/>
+                            <circle cx="70" cy="90" r="2" fill="#1b9e77" opacity="0.6"/>
+                            <circle cx="90" cy="70" r="2" fill="#1b9e77" opacity="0.6"/>
+                            <circle cx="110" cy="60" r="2" fill="#1b9e77" opacity="0.6"/>
+                            <circle cx="130" cy="50" r="2" fill="#1b9e77" opacity="0.6"/>
+                            <circle cx="150" cy="40" r="2" fill="#1b9e77" opacity="0.6"/>
+                            <circle cx="170" cy="35" r="2" fill="#1b9e77" opacity="0.6"/>
+
+                            <!-- Regression Lines for each city -->
+                            <path d="M25,125 Q40,110 55,100 T85,85 T115,75 T145,65 T175,55 T200,45" fill="none" stroke="#d95f02" stroke-width="2"/>
+                            <path d="M25,140 Q50,120 75,100 T125,80 T175,60 T200,50" fill="none" stroke="#1b9e77" stroke-width="2"/>
+                            <path d="M25,150 Q50,130 75,110 T125,90 T175,70 T200,60" fill="none" stroke="#7570b3" stroke-width="2"/>
+
+                            <!-- Legend -->
+                            <rect x="140" y="30" width="10" height="5" fill="#d95f02"/>
+                            <text x="155" y="35" font-family="Roboto" font-size="8" fill="#222">Long Beach</text>
+                            
+                            <rect x="140" y="40" width="10" height="5" fill="#1b9e77"/>
+                            <text x="155" y="45" font-family="Roboto" font-size="8" fill="#222">Santa Monica</text>
+                            
+                            <rect x="140" y="50" width="10" height="5" fill="#7570b3"/>
+                            <text x="155" y="55" font-family="Roboto" font-size="8" fill="#222">Westwood</text>
+                        </svg>
+                    </div>
+                    <div class="project-details">
+                        <h4>Project Overview</h4>
+                        <p>This project focused on performing in-depth statistical analysis and building predictive models to accurately forecast real estate pricing. The goal was to identify key features and their influence on property values to support a client's strategic pricing decisions.</p>
+                        <h4>Key Responsibilities</h4>
+                        <p>I utilized **R** to perform a complete **exploratory data analysis (EDA)**, including data cleaning and visualization. I developed and refined multiple regression models (**linear, multiple, logistic**) to identify the most significant features for price prediction, such as square footage and location. My work included optimizing model fit by analyzing interaction effects and using visualization to communicate findings clearly.</p>
+                        <h4>Technologies Used</h4>
+                        <ul class="skills-list">
+                            <li>R</li>
+                            <li>EDA</li>
+                            <li>Regression Modeling</li>
+                            <li>Statistical Analysis</li>
+                            <li>Data Visualization</li>
+                        </ul>
+                        <h4>Business Impact</h4>
+                        <ul>
+                            <li>Demonstrated a strong **positive correlation between price and square footage**, which informed pricing strategies.</li>
+                            <li>Discovered that this relationship varied significantly by city, with **Santa Monica showing the highest price increase per square foot**.</li>
+                            <li>Developed a robust predictive model that improved forecast accuracy by **25%**, providing a real estate firm with a reliable tool for strategic pricing.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <!-- New Blog Section -->
+        <div class="section" id="blog">
+            <h2>Blog & Insights</h2>
+            <p>A collection of my thoughts and insights on data, technology, and engineering.</p>
+            <div class="blog-post">
+                <div class="blog-title">The Rise of Snowflake: Why Data Warehousing is Changing</div>
+                <div class="blog-date">August 25, 2025</div>
+                <p>Discussing the key features of Snowflake that are disrupting traditional data warehousing and how it has impacted my work on recent projects.</p>
+                <a href="#">Read More &rarr;</a>
+            </div>
+            <div class="blog-post">
+                <div class="blog-title">Improving Data Quality with ETL Pipelines</div>
+                <div class="blog-date">July 18, 2025</div>
+                <p>A deep dive into best practices for implementing data quality checks within an ETL process to ensure data integrity and reliability for analytics.</p>
+                <a href="#">Read More &rarr;</a>
+            </div>
+            <div class="blog-post">
+                <div class="blog-title">From SDET to Data Engineer: A Career Transition Story</div>
+                <div class="blog-date">June 10, 2025</div>
+                <p>Sharing my personal journey and the key skills I leveraged from my Software Development Engineer in Test (SDET) role to transition into a Data Engineer position.</p>
+                <a href="#">Read More &rarr;</a>
+            </div>
+        </div>
+
         <div class="section" id="resume">
             <h2>Resume</h2>
             <p><a href="chandra_resume.pdf" target="_blank" style="font-weight:bold;"><i class="fa fa-file-pdf"></i> Download PDF Resume</a></p>
         </div>
+
         <div class="section" id="contact">
             <h2>Contact</h2>
             <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 1em; font-size: 1.1em;">
-        <span><i class="fa fa-map-marker-alt"></i> Plano, TX 75024</span>
-        <span><i class="fa fa-envelope"></i> <a href="mailto:vetsa.chandu@gmail.com">vetsa.chandu@gmail.com</a></span>
-        <span><i class="fa fa-phone"></i> <a href="tel:8019199636">(801) 919-9636</a></span>
-        <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/chandra-vetsa/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
-    </div>
-    <p style="margin-top:1em;">Feel free to reach out via <a href="mailto:vetsa.chandu@gmail.com">email</a> or connect on <a href="https://www.linkedin.com/in/chandra-vetsa/" target="_blank" rel="noopener noreferrer">LinkedIn</a> for opportunities, collaborations, or questions.</p>
+                <span><i class="fa fa-map-marker-alt"></i> Plano, TX 75024</span>
+                <span><i class="fa fa-envelope"></i> <a href="mailto:vetsa.chandu@gmail.com">vetsa.chandu@gmail.com</a></span>
+                <span><i class="fa fa-phone"></i> <a href="tel:8019199636">(801) 919-9636</a></span>
+                <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/chandra-vetsa/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+            </div>
+            <p style="margin-top:1em;">Feel free to reach out via <a href="mailto:vetsa.chandu@gmail.com">email</a> or connect on <a href="https://www.linkedin.com/in/chandra-vetsa/" target="_blank" rel="noopener noreferrer">LinkedIn</a> for opportunities, collaborations, or questions.</p>
+            <div style="text-align: center; margin-top: 2em;">
+                <p style="font-size: 1.4em; font-weight: 700; color: #2a4d69;">Ready to build something great together? Let's connect!</p>
+                <a href="mailto:vetsa.chandu@gmail.com" style="background:#2a4d69;color:#fff;padding:0.8em 2em;border-radius:24px;text-decoration:none;transition:background 0.2s, box-shadow 0.2s;box-shadow: 0 4px 12px rgba(44, 62, 80, 0.15);">Email Me</a>
+            </div>
         </div>
         <div class="footer">
             &copy; 2025 Chandra Naga Manikanta Vetsa. All rights reserved.
@@ -255,7 +701,7 @@ blockquote { border-left: 4px solid #4b86b4; padding-left: 1em; }
     </div>
     <script>
         // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(link => {
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
