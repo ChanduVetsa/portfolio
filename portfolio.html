@@ -3,7 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chandra Naga Manikanta Vetsa | Portfolio</title>
+    <title>Chandra Naga Manikanta Vetsa | Data Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Chandra Naga Manikanta Vetsa, Data Engineer. Explore projects, experience, and achievements in LLM-powered automation, ETL, and analytics.">
+    <meta name="keywords" content="Chandra Vetsa, Data Engineer, Portfolio, LLM, ETL, Analytics, SQL, Snowflake, Automation, Projects">
+    <meta name="author" content="Chandra Naga Manikanta Vetsa">
+    <meta property="og:title" content="Chandra Naga Manikanta Vetsa | Data Engineer Portfolio">
+    <meta property="og:description" content="Explore Chandra's experience, projects, and achievements in data engineering and LLM-powered automation.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/<your-github-username>/<your-repo>/main/img.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://<your-github-username>.github.io/<your-repo>/portfolio.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chandra Naga Manikanta Vetsa | Data Engineer Portfolio">
+    <meta name="twitter:description" content="Portfolio of Chandra Naga Manikanta Vetsa, Data Engineer. Projects, experience, and achievements.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/<your-github-username>/<your-repo>/main/img.png">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -69,6 +89,14 @@
             background: #f8fbff;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section:not(:first-child) {
@@ -298,6 +326,30 @@
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
+
+        /* Sticky Back to Top button */
+        #backToTop {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: #4b86b4;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.18);
+            font-size: 1.6em;
+            cursor: pointer;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #backToTop.visible {
+            display: flex;
+        }
     </style>
 </head>
 <body>
@@ -318,7 +370,6 @@
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
-            <a href="#blog">Blog</a>
             <a href="#resume">Resume</a>
             <a href="#contact">Contact</a>
         </div>
@@ -653,30 +704,6 @@
             </div>
         </div>
         
-        <!-- New Blog Section -->
-        <div class="section" id="blog">
-            <h2>Blog & Insights</h2>
-            <p>A collection of my thoughts and insights on data, technology, and engineering.</p>
-            <div class="blog-post">
-                <div class="blog-title">The Rise of Snowflake: Why Data Warehousing is Changing</div>
-                <div class="blog-date">August 25, 2025</div>
-                <p>Discussing the key features of Snowflake that are disrupting traditional data warehousing and how it has impacted my work on recent projects.</p>
-                <a href="#">Read More &rarr;</a>
-            </div>
-            <div class="blog-post">
-                <div class="blog-title">Improving Data Quality with ETL Pipelines</div>
-                <div class="blog-date">July 18, 2025</div>
-                <p>A deep dive into best practices for implementing data quality checks within an ETL process to ensure data integrity and reliability for analytics.</p>
-                <a href="#">Read More &rarr;</a>
-            </div>
-            <div class="blog-post">
-                <div class="blog-title">From SDET to Data Engineer: A Career Transition Story</div>
-                <div class="blog-date">June 10, 2025</div>
-                <p>Sharing my personal journey and the key skills I leveraged from my Software Development Engineer in Test (SDET) role to transition into a Data Engineer position.</p>
-                <a href="#">Read More &rarr;</a>
-            </div>
-        </div>
-
         <div class="section" id="resume">
             <h2>Resume</h2>
             <p><a href="chandra_resume.pdf" target="_blank" style="font-weight:bold;"><i class="fa fa-file-pdf"></i> Download PDF Resume</a></p>
@@ -700,6 +727,8 @@
             &copy; 2025 Chandra Naga Manikanta Vetsa. All rights reserved.
         </div>
     </div>
+    <!-- Sticky Back to Top Button -->
+    <button id="backToTop" title="Back to Top"><i class="fa fa-arrow-up"></i></button>
     <script>
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -710,6 +739,31 @@
                     window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
                 }
             });
+        });
+
+        // Section entrance animation
+        function revealSections() {
+            document.querySelectorAll('.section').forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 60) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+
+        // Back to Top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
